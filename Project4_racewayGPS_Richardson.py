@@ -15,12 +15,12 @@ output = r"C:\PSU\02_GEOG485\Lesson4\WakefieldParkRaceway_20160421.shp"
 
 try:
     # Process the input CSV file and return a dictionary containing coordinate sets of each lap
-    lapDictionary = csvtoshp.getCoords(spreadsheet)
+    lapDictionary, timeDictionary = csvtoshp.getCoords(spreadsheet)
     
     # Create new polyline feature class in WGS84
-    csvtoshp.gpsTracks(output, lapDictionary)
+    csvtoshp.gpsTracks(output, lapDictionary, timeDictionary)
     
-    print(str(output)," created.")
+    print(str(output),"created.")
     
 except:
     print("Oh no, something went wrong.")
